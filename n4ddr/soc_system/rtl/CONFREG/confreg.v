@@ -46,30 +46,30 @@ THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //*************************************************************************
 `define RANDOM_SEED {7'b1010101,16'h00FF}
 
-`define CR0_ADDR       16'h8000   //32'hbfaf_8000 
-`define CR1_ADDR       16'h8004   //32'hbfaf_8004 
-`define CR2_ADDR       16'h8008   //32'hbfaf_8008 
-`define CR3_ADDR       16'h800c   //32'hbfaf_800c 
-`define CR4_ADDR       16'h8010   //32'hbfaf_8010 
-`define CR5_ADDR       16'h8014   //32'hbfaf_8014 
-`define CR6_ADDR       16'h8018   //32'hbfaf_8018 
-`define CR7_ADDR       16'h801c   //32'hbfaf_801c 
+`define CR0_ADDR       16'h8000   //32'hbfd0_8000
+`define CR1_ADDR       16'h8004   //32'hbfd0_8004 
+`define CR2_ADDR       16'h8008   //32'hbfd0_8008 
+`define CR3_ADDR       16'h800c   //32'hbfd0_800c 
+`define CR4_ADDR       16'h8010   //32'hbfd0_8010 
+`define CR5_ADDR       16'h8014   //32'hbfd0_8014 
+`define CR6_ADDR       16'h8018   //32'hbfd0_8018 
+`define CR7_ADDR       16'h801c   //32'hbfd0_801c 
 
-`define LED_ADDR       16'hf000   //32'hbfaf_f000 
-`define LED_RG0_ADDR   16'hf004   //32'hbfaf_f004 
-`define LED_RG1_ADDR   16'hf008   //32'hbfaf_f008 
-`define NUM_ADDR       16'hf010   //32'hbfaf_f010 
-`define SWITCH_ADDR    16'hf020   //32'hbfaf_f020 
-`define BTN_KEY_ADDR   16'hf024   //32'hbfaf_f024
-`define BTN_STEP_ADDR  16'hf028   //32'hbfaf_f028
-`define SW_INTER_ADDR  16'hf02c   //32'hbfaf_f02c 
-`define TIMER_ADDR     16'he000   //32'hbfaf_e000 
+`define LED_ADDR       16'hf000   //32'hbfd0_f000 
+`define LED_RG0_ADDR   16'hf004   //32'hbfd0_f004 
+`define LED_RG1_ADDR   16'hf008   //32'hbfd0_f008 
+`define NUM_ADDR       16'hf010   //32'hbfd0_f010 
+`define SWITCH_ADDR    16'hf020   //32'hbfd0_f020 
+`define BTN_KEY_ADDR   16'hf024   //32'hbfd0_f024
+`define BTN_STEP_ADDR  16'hf028   //32'hbfd0_f028
+`define SW_INTER_ADDR  16'hf02c   //32'hbfd0_f02c 
+`define TIMER_ADDR     16'he000   //32'hbfd0_e000 
 
-`define IO_SIMU_ADDR      16'hffec  //32'hbfaf_ffec
-`define VIRTUAL_UART_ADDR 16'hfff0  //32'hbfaf_fff0
-`define SIMU_FLAG_ADDR    16'hfff4  //32'hbfaf_fff4 
-`define OPEN_TRACE_ADDR   16'hfff8  //32'hbfaf_fff8
-`define NUM_MONITOR_ADDR  16'hfffc  //32'hbfaf_fffc
+`define IO_SIMU_ADDR      16'hffec  //32'hbfd0_ffec
+`define VIRTUAL_UART_ADDR 16'hfff0  //32'hbfd0_fff0
+`define SIMU_FLAG_ADDR    16'hfff4  //32'hbfd0_fff4 
+`define OPEN_TRACE_ADDR   16'hfff8  //32'hbfd0_fff8
+`define NUM_MONITOR_ADDR  16'hfffc  //32'hbfd0_fffc
 module confreg
 #(parameter SIMULATION=1'b0)
 (                     

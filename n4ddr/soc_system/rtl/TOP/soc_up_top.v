@@ -517,60 +517,51 @@ wire [5:0] int_out;
 wire mac_int;
 assign int_out = {1'b0, 1'b0, 1'b0, uart0_int, spi_inta_o, mac_int   };
 
-//=============={ila}beg==============
-ila_0 u_ila (
-    .clk(cpu_clk), 
+// wire [31:0] sp, ra;
 
-    //PC, instr
-    .probe0(u_cpu.datapath.pcD),
-    .probe1(u_cpu.datapath.ascii[31:0]),
-    .probe2(u_cpu.datapath.instrD),
+// assign sp = u_cpu.datapath.regfile0.rf[29];
+// assign ra = u_cpu.datapath.regfile0.rf[31];
 
-    //write back regfile
-    .probe3(u_cpu.datapath.resultM),
+// wire EXL, IE, IM7, IM4, IP7, IP4;
+// wire [4:0] ExcCode;
+// assign IE = u_cpu.datapath.cp0.status_reg[0];
+// assign EXL = u_cpu.datapath.cp0.status_reg[1];
+// assign IM7 = u_cpu.datapath.cp0.status_reg[15];
+// assign IM4 = u_cpu.datapath.cp0.status_reg[12];
+// assign IP7 = u_cpu.datapath.cp0.cause_reg[15];
+// assign IP4 = u_cpu.datapath.cp0.cause_reg[12];
+// assign ExcCode = u_cpu.datapath.cp0.cause_reg[6:2];
+
+// ila_0 u_ila (
+//     .clk(cpu_clk), 
+
+//     //PC, instr
+//     .probe0(u_cpu.datapath.pcF),
+//     .probe1(u_cpu.datapath.instrD),
+
+//     .probe2(sp),
+//     .probe3(ra),
+//     .probe4(u_cpu.datapath.cp0.epc_reg),
+
+//     //MEM
+//     .probe5(cpu_araddr),
+//     .probe6(cpu_awaddr),
     
-    //load/store addr, data
-    .probe4(u_cpu.datapath.mem_addrM),
-    .probe5(u_cpu.datapath.mem_wdataM),
+//     //Exception
+//     .probe7({ //24
+//         IE, EXL, IM7, IM4, IP7, IP4, ExcCode,
+//         cpu_arvalid, cpu_rvalid, cpu_awvalid, cpu_bvalid,
+//         u_cpu.datapath.hazard0.i_cache_stall,
+//         u_cpu.datapath.hazard0.d_cache_stall,
+//         u_cpu.datapath.hazard0.stall_ltypeD,
+//         u_cpu.datapath.hazard0.flush_exceptionM,
+//         u_cpu.datapath.hazard0.flush_branch_likely_M,
+//         u_cpu.datapath.hazard0.stall_ltypeD,
+//         u_cpu.d_cache.state,
+//         u_cpu.arbitrater0.ar_sel
+//     })
     
-    //Exception
-    .probe6({ //12
-        u_cpu.datapath.flush_exceptionM,   //1
-        u_cpu.datapath.ext_int[1:0],       //2
-        u_cpu.datapath.cp0_statusW[1 :0],  //2, EXL_IE
-        u_cpu.datapath.cp0_statusW[9:8],   //2, IM
-        u_cpu.datapath.cp0_causeW[6 :2]    //5, ExcCode
-    }),
-
-    //else
-    .probe7({ //18
-        cpu_arvalid,
-        cpu_rvalid,
-        cpu_awvalid,
-        cpu_bvalid,
-
-        cpu_sync_arvalid,
-        cpu_sync_rvalid,
-        cpu_sync_awvalid,
-        cpu_sync_bvalid,
-
-        s0_arvalid,
-        s0_awvalid,
-
-        conf_s_arvalid,
-        conf_s_awvalid,
-
-        spi_s_arvalid,
-        spi_s_awvalid,
-
-        mac_s_arvalid,
-        mac_s_awvalid,
-
-        apb_s_arvalid,
-        apb_s_awvalid
-    })
-);
-//=============={ila}end==============
+// );
 
 // cpu
 mycpu_top u_cpu(
